@@ -1,12 +1,12 @@
 import { createContext } from 'react';
-import { IMenuConfig } from 'src/types/menu';
+import { IMenuItem } from 'src/types/menu';
 
 interface IGlobalContext {
-  menu: IMenuConfig[];
+  menu: IMenuItem[];
 }
 
 const GlobalContext = createContext<IGlobalContext>({
-  menu: []
+  menu: [],
 });
 
 export default GlobalContext;

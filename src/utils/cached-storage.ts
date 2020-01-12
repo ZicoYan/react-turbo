@@ -1,4 +1,4 @@
-import moment from 'moment';
+import dayjs from 'dayjs';
 
 function expiredKey(key: string) {
   return `@expired/${key}`;
@@ -7,7 +7,7 @@ function expiredKey(key: string) {
 export function getCache(key: string) {
   const expiredAt = localStorage.getItem(expiredKey(key));
   if (expiredAt && +expiredAt) {
-    if (!moment().isAfter(+expiredAt)) {
+    if (!dayjs().isAfter(+expiredAt)) {
       return localStorage.getItem(key);
     }
   }
@@ -19,8 +19,8 @@ export function getCache(key: string) {
 export function setCache(key: string, value: string, milliseconds: number) {
   localStorage.setItem(
     expiredKey(key),
-    moment()
-      .add(milliseconds, 'milliseconds')
+    dayjs()
+      .add(milliseconds, 'ms')
       .valueOf()
       .toString(),
   );

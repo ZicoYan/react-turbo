@@ -1,12 +1,26 @@
-import { IMenuConfig } from 'src/types/menu';
+import { IMenuItem } from 'src/types/menu';
+import {
+  Dashboard as DashboardIcon,
+  Group as GroupIcon,
+} from '@material-ui/icons';
 
-const menu: IMenuConfig[] = [
-  { name: '总览', icon: 'dashboard', route: '/', component: 'dashboard' },
+const menu: IMenuItem[] = [
   {
-    name: '公司',
-    icon: 'team',
+    name: '总览',
+    icon: DashboardIcon,
+    path: ['/', '/index'],
+    component: 'dashboard',
+  },
+  {
+    name: '员工',
+    icon: GroupIcon,
+    path: '/employee',
     children: [
-      { name: '列表', route: '/company/list', component: 'company/list' },
+      {
+        name: '员工列表',
+        path: ['/index', '/'],
+        component: 'employee/list',
+      },
     ],
   },
 ];

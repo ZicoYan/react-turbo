@@ -1,5 +1,4 @@
 import { getCache } from './cached-storage';
-import { notification } from 'antd';
 
 const HTTP_STATUS_MAP = {
   200: '服务器成功返回请求的数据。',
@@ -37,10 +36,10 @@ function requestErrorNotify({
   message: string;
   isNetworkError: boolean;
 }) {
-  notification.error({
-    message: isNetworkError ? `网络错误：${code}` : `服务器错误：${code}`,
-    description: message,
-  });
+  // notification.error({
+  //   message: isNetworkError ? `网络错误：${code}` : `服务器错误：${code}`,
+  //   description: message,
+  // });
 }
 
 function request<T>(method: IRequestMethod, url: string, data): Promise<T> {
@@ -110,5 +109,5 @@ export default {
   },
   delete<T>(url: string, data: T) {
     return request<T>('DELETE', url, data);
-  }
+  },
 };

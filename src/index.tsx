@@ -2,7 +2,7 @@ import React from 'react';
 import ReactDom from 'react-dom';
 import { HashRouter } from 'react-router-dom';
 import GlobalContext from 'src/context/global';
-import BasicLayout from 'src/layouts/basic-layout';
+import MaterialLayout from 'src/layouts/material-layout';
 
 import menu from './menu';
 
@@ -12,7 +12,7 @@ function App() {
   return (
     <GlobalProvider value={{ menu }}>
       <HashRouter>
-        <BasicLayout />
+        <MaterialLayout menu={menu} />
       </HashRouter>
     </GlobalProvider>
   );
